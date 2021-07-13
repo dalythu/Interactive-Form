@@ -34,3 +34,17 @@ design.addEventListener("change", e => {
         }
     }
 });
+
+const registration = document.getElementById("activities");
+const totalElement= document.getElementById("activities-cost");
+let displayedCost = 0;
+
+registration.addEventListener('change', e => {
+    let cost = e.target.getAttribute('data-cost');
+    if (e.target.checked) {
+        displayedCost += parseInt(cost);
+    } else {
+        displayedCost -= parseInt(cost);
+    }
+    totalElement.innerHTML = 'Total: $' + displayedCost;
+});
