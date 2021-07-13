@@ -48,3 +48,32 @@ registration.addEventListener('change', e => {
     }
     totalElement.innerHTML = 'Total: $' + displayedCost;
 });
+
+let userPayment = document.getElementById('payment');
+let paymentMethods = document.getElementsByClassName('payment-methods')[0];
+const creditCard = document.getElementById('credit-card');
+const payPal = document.getElementById('paypal');
+const bitCoin = document.getElementById('bitcoin');
+
+payPal.style.display = 'none';
+bitCoin.style.display = 'none';
+
+userPayment.children[1].setAttribute("selected", true);
+
+userPayment.addEventListener('change', e => {
+    if (e.target.value == 'credit-card') {
+        creditCard.style.display = 'inherit';
+        payPal.style.display = 'none';
+        bitCoin.style.display = 'none';
+    } else if (e.target.value == 'paypal') {
+        payPal.style.display = 'inherit';
+        creditCard.style.display = 'none';
+        bitCoin.style.display = 'none';
+    } else if (e.target.value == 'bitcoin') {
+        bitCoin.style.display = 'inherit';
+        payPal.style.display = 'none';
+        creditCard.style.display = 'none'; 
+    }
+})
+
+
